@@ -1,0 +1,10 @@
+{
+  "aws": {
+    "region": "REGION",
+    "accountId": "ACCOUNT_ID",
+    "cognito": {
+      "userPoolId": "USER_POOL_ID"
+    }
+  },
+  "httpPort": "HTTP_PORT"
+}

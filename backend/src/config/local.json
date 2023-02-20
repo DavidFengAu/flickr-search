@@ -1,0 +1,9 @@
+{
+  "aws": {
+    "profile": "",
+    "accountId": "",
+    "cognito": {
+      "userPoolId": ""
+    }
+  }
+}
