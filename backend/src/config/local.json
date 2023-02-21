@@ -1,4 +1,8 @@
 {
+  "flickr": {
+    "apiKey": "",
+    "secretKey": ""
+  },
   "aws": {
     "profile": "",
     "accountId": "",

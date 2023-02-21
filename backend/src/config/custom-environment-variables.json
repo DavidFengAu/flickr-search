@@ -1,4 +1,8 @@
 {
+  "flickr": {
+    "key": "FLICKR_API_KEY",
+    "secret": "FLICKR_SECRET_KEY"
+  },
   "aws": {
     "region": "REGION",
     "accountId": "ACCOUNT_ID",
