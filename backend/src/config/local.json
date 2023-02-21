@@ -4,10 +4,9 @@
     "secretKey": ""
   },
   "aws": {
-    "profile": "",
-    "accountId": "",
+    "region": "us-east-1",
     "cognito": {
-      "userPoolId": ""
+      "userPoolId": "us-east-1_WOnY9KfjD"
     }
   }
 }

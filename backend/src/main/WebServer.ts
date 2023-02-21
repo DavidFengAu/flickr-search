@@ -5,13 +5,15 @@ import helmet from "helmet"
 import morgan from "morgan"
 
 import SearchController from "../controllers/SearchController"
+import { CognitoAuthenticator, CognitoTokenValidator } from "./middlewares/CognitoTokenValidator"
 import { clientErrorHandler, errorHandler, logErrors } from "./middlewares/ErrorHandlers"
 import type ServicesAssembler from "./ServicesAssembler"
 
 class WebServer {
   constructor(
     private readonly app: Application,
-    private readonly servicesAssembler: ServicesAssembler
+    private readonly servicesAssembler: ServicesAssembler,
+    private readonly authenticator: CognitoAuthenticator
   ) {
   }
 
@@ -34,6 +36,12 @@ class WebServer {
       res.send('Welcome to Flickr Search Server.')
     })
 
+    // Authenticate requests with Amazon Cognito User Pools
+    if (process.env.NODE_ENV !== 'test') {
+      this.app.use(CognitoTokenValidator(this.authenticator))
+    }
+
+    // Apply routes
     this.app.use("/", this.buildRoutes())
 
     // Middlewares that log and handle errors

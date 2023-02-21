@@ -4,9 +4,7 @@ export type Config = {
     secretKey: string
   },
   aws: {
-    profile?: string
     region: string
-    accountId: string
     cognito: {
       userPoolId: string
     }
