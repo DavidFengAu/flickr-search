@@ -1,7 +1,6 @@
 {
   "flickr": {
-    "key": "FLICKR_API_KEY",
-    "secret": "FLICKR_SECRET_KEY"
+    "apiKey": "FLICKR_API_KEY"
   },
   "aws": {
     "region": "REGION",

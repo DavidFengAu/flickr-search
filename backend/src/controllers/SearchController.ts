@@ -1,4 +1,4 @@
-import { RequestBodyValidator } from "../main/middlewares/RequestBodyValidator"
+import { RequestQueryValidator } from "../main/middlewares/RequestQueryValidator"
 import type FlickrService from "../services/FlickrService"
 import Controller from "./Controller"
 import { SearchPhotosRequest, SearchPhotosRequestValidate } from "./requests/FlickrRequest"
@@ -13,10 +13,10 @@ class SearchController extends Controller {
   }
 
   protected assembleRoutes(): void {
-    this.router.post("/",
-      RequestBodyValidator(SearchPhotosRequestValidate),
+    this.router.get("/",
+      RequestQueryValidator(SearchPhotosRequestValidate),
       async (req, res) => {
-        const result = await this.flickrService.searchPhotos(req.body as SearchPhotosRequest)
+        const result = await this.flickrService.photosSearch(req.query as SearchPhotosRequest)
         res.send(result)
       })
   }

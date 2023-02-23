@@ -1,7 +1,6 @@
 export type Config = {
   flickr: {
-    apiKey: string,
-    secretKey: string
+    apiKey: string
   },
   aws: {
     region: string

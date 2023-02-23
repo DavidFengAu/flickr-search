@@ -1,4 +1,5 @@
 import compression from 'compression'
+import cors from 'cors'
 import type { Application } from "express"
 import express, { Router } from "express"
 import helmet from "helmet"
@@ -18,6 +19,9 @@ class WebServer {
   }
 
   start(): void {
+    // Middleware that enable CORS
+    this.app.use(cors())
+
     // Middleware that parses string into json
     this.app.use(express.json())
 

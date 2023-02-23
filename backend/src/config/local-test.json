@@ -1,7 +1,0 @@
-{
-  "flickr": {
-    "apiKey": "61b57bf32b282e3f1dd833a7d853baf0",
-    "secretKey": "57f569896de7206a"
-  },
-  "httpPort": "9000"
-}
