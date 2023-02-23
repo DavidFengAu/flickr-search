@@ -11,6 +11,7 @@ node_modules/
 
 # config file
 local-development.json
+local-test.json
 
 # built file
 build/

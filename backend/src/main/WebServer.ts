@@ -4,6 +4,9 @@ import type { Application } from "express"
 import express, { Router } from "express"
 import helmet from "helmet"
 import morgan from "morgan"
+import path from "path"
+import swaggerUi from 'swagger-ui-express'
+import YAML from 'yamljs'
 
 import SearchController from "../controllers/SearchController"
 import { CognitoAuthenticator, CognitoTokenValidator } from "./middlewares/CognitoTokenValidator"
@@ -39,6 +42,10 @@ class WebServer {
     this.app.get('/', (_req, res) => {
       res.send('Welcome to Flickr Search Server.')
     })
+
+    // Serve API docs
+    const swaggerDocument = YAML.load(path.resolve(__dirname,'./apiDocs/openapi.yaml'))
+    this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
     // Authenticate requests with Amazon Cognito User Pools
     if (process.env.NODE_ENV !== 'test') {
